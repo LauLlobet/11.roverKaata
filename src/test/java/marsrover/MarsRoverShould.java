@@ -41,6 +41,14 @@ public class MarsRoverShould {
 
         Rover rover = marsRover.getRover();
         assertThat(rover.getOrientation(),is("N"));
+
+        marsRover = new MarsRover();
+
+        marsRover.applyCommand("5 5");
+        marsRover.applyCommand("1 2 E");
+        rover = marsRover.getRover();
+
+        assertThat(rover.getOrientation(),is("E"));
     }
 
 }
