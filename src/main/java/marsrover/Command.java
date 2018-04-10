@@ -12,6 +12,9 @@ class Command {
         height = Integer.parseInt(parts[1]);
     }
 
+    public Command() {
+    }
+
     public int getWidth() {
         return width;
     }

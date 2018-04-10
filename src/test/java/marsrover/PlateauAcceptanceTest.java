@@ -25,18 +25,18 @@ Expected Output:
 5 1 E
 
  */
-public class MarsRoverAcceptanceTest {
+public class PlateauAcceptanceTest {
 
     @Test
     public void acceptanceTest(){
-        MarsRover rover = new MarsRover();
+        MRKApi mrkApi = new MRKApi(new Plateau());
 
-        rover.applyCommand("5 5");
-        rover.applyCommand("1 2 N");
-        rover.applyCommand("LMLMLMLMM");
-        rover.applyCommand("3 3 E");
-        rover.applyCommand("MMRMMRMRRM");
-        List<String> output = rover.getOutput();
+        mrkApi.applyCommand("5 5");
+        mrkApi.applyCommand("1 2 N");
+        mrkApi.applyCommand("LMLMLMLMM");
+        mrkApi.applyCommand("3 3 E");
+        mrkApi.applyCommand("MMRMMRMRRM");
+        List<String> output = mrkApi.getOutput();
 
         assertThat(output.get(0),is("1 3 N"));
         assertThat(output.get(1),is("5 1 E"));
