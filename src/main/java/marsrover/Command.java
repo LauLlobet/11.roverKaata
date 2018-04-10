@@ -1,11 +1,11 @@
 package marsrover;
 
 abstract class Command {
-    protected Rover rover;
-    protected Plateau plateau;
-    protected String[] parts;
+    Rover rover;
+    Plateau plateau;
+    String[] parts;
 
-    public Command(Plateau plateau, Rover rover) {
+    Command(Plateau plateau, Rover rover) {
       this.plateau = plateau;
       this.rover = rover;
     }

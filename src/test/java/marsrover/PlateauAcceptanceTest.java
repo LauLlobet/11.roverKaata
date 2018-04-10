@@ -28,8 +28,8 @@ Expected Output:
 public class PlateauAcceptanceTest {
 
     @Test
-    public void acceptanceTest(){
-        MRKApi mrkApi = new MRKApi(new Plateau(), new Rover());
+    public void acceptanceTest() throws Exception{
+        MRKApi mrkApi = new MRKApi(new Plateau(), new Rover(), new StateMachineOfCommands());
 
         mrkApi.applyCommand("5 5");
         mrkApi.applyCommand("1 2 N");

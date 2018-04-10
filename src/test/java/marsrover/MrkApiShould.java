@@ -16,12 +16,12 @@ public class MrkApiShould {
     public void before() {
         plateau = new Plateau();
         rover = new Rover();
-        mrkApi = new MRKApi(plateau, rover);
+        mrkApi = new MRKApi(plateau, rover, new StateMachineOfCommands());
     }
 
     @Test
     public void
-    be_created_with_a_board_size() {
+    be_created_with_a_board_size() throws Exception {
         mrkApi.applyCommand("5 4");
 
         assertThat(plateau.getPlateauWidth(),is(5));
@@ -30,7 +30,7 @@ public class MrkApiShould {
 
     @Test
     public void
-    orient_the_rover_at_four_directions() {
+    orient_the_rover_at_four_directions() throws Exception {
         mrkApi.applyCommand("5 4");
         mrkApi.applyCommand("1 2 N");
 
