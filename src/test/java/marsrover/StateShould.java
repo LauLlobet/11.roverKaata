@@ -7,16 +7,17 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 public class StateShould {
-    private State1 state;
+    private StateMachineOfCommands state;
     private Command intialCommand;
     private Command finalCommand;
 
     @Before
     public void setUp(){
-        state = new State1();
+        state = new StateMachineOfCommands();
         intialCommand = new Command();
         finalCommand = new Command();
         state.putCommand("initial",intialCommand);
+        state.putCommand("final", finalCommand);
     }
     @Test
     public void
@@ -30,7 +31,22 @@ public class StateShould {
     link_states_between_them() {
 
         state.putCommand("final",finalCommand);
-        state.setNextState("initial","final");
+        state.setTransition("initial","final");
         assertThat(state.getNextState("initial"),is("final"));
+    }
+
+    @Test
+    public void
+    change_state_and_provide_its_commads() throws Exception {
+        state.setTransition("initial","final");
+        state.setTransition("final","initial");
+
+        state.nextState();
+
+       assertThat(state.getActualCommand(),is(finalCommand));
+
+       state.nextState();
+
+       assertThat(state.getActualCommand(),is(intialCommand));
     }
 }
