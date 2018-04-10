@@ -1,7 +1,7 @@
 package marsrover;
 
 public class Rover {
-    private String orientation = "W";
+    private String orientation = "W"; //SPIN si MOVE no
     Rover() {
     }
 

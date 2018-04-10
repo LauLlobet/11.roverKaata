@@ -1,6 +1,6 @@
 package marsrover;
 
-import java.util.HashMap;
+import java.util.HashMap; // NO ESTA EN EL DOMAIN
 
 public class StateMachineOfCommands extends HashMap<String,Command> {
     private HashMap<String, String> transitions = new HashMap<String, String>();

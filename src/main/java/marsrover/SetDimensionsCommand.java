@@ -1,5 +1,7 @@
 package marsrover;
 
+//NO ESTA EN EL DOMINI
+
 public class SetDimensionsCommand extends Command{
 
     SetDimensionsCommand(Plateau plateau, Rover rover) {

@@ -1,6 +1,6 @@
 package marsrover;
 
-public class Plateau {
+public class Plateau { // DEFINE ok
     private int plateauWidth;
     private int plateauHeight;
 
