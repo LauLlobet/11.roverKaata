@@ -16,5 +16,12 @@ public class MarsRoverShould {
 
         assertThat(marsRover.getPlateauWidth(),is(5));
         assertThat(marsRover.getPlateauHeight(),is(4));
+
+        marsRover = new MarsRover();
+
+        marsRover.applyCommand("6 5");
+
+        assertThat(marsRover.getPlateauWidth(),is(6));
+        assertThat(marsRover.getPlateauHeight(),is(5));
     }
 }

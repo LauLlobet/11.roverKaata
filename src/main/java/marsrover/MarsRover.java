@@ -12,7 +12,10 @@ public class MarsRover {
     }
 
     public void applyCommand(String command) {
-        setPlateauDimensions(5,4);
+        String[] parts = command.split(" ");
+        int width = Integer.parseInt(parts[0]);
+        int height = Integer.parseInt(parts[1]);
+        setPlateauDimensions(width, height);
     }
 
     private void setPlateauDimensions(int width,int height) {
