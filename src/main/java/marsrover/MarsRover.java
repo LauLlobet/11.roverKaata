@@ -12,7 +12,7 @@ public class MarsRover {
     }
 
     public void applyCommand(String command) {
-        Command parseComand = new Command(command).invoke();
+        Command parseComand = new Command(command);
         int width = parseComand.getWidth();
         int height = parseComand.getHeight();
         setPlateauDimensions(width, height);

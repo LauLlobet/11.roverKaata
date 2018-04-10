@@ -7,6 +7,9 @@ class Command {
 
     public Command(String command) {
         this.command = command;
+        String[] parts = command.split(" ");
+        width = Integer.parseInt(parts[0]);
+        height = Integer.parseInt(parts[1]);
     }
 
     public int getWidth() {
@@ -17,10 +20,4 @@ class Command {
         return height;
     }
 
-    public Command invoke() {
-        String[] parts = command.split(" ");
-        width = Integer.parseInt(parts[0]);
-        height = Integer.parseInt(parts[1]);
-        return this;
-    }
 }
