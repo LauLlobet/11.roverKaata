@@ -12,9 +12,9 @@ public class MarsRover {
     }
 
     public void applyCommand(String command) {
-        String[] parts = command.split(" ");
-        int width = Integer.parseInt(parts[0]);
-        int height = Integer.parseInt(parts[1]);
+        Command parseComand = new Command(command).invoke();
+        int width = parseComand.getWidth();
+        int height = parseComand.getHeight();
         setPlateauDimensions(width, height);
     }
 
@@ -30,4 +30,5 @@ public class MarsRover {
     public int getPlateauHeight() {
         return plateauHeight;
     }
+
 }
