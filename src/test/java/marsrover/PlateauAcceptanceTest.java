@@ -29,7 +29,7 @@ public class PlateauAcceptanceTest {
 
     @Test
     public void acceptanceTest(){
-        MRKApi mrkApi = new MRKApi(new Plateau());
+        MRKApi mrkApi = new MRKApi(new Plateau(), new Rover());
 
         mrkApi.applyCommand("5 5");
         mrkApi.applyCommand("1 2 N");

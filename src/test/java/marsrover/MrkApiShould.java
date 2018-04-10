@@ -10,11 +10,13 @@ public class MrkApiShould {
 
     private Plateau plateau;
     private MRKApi mrkApi;
+    private Rover rover;
 
     @Before
     public void before() {
         plateau = new Plateau();
-        mrkApi = new MRKApi(plateau);
+        rover = new Rover();
+        mrkApi = new MRKApi(plateau, rover);
     }
 
     @Test
@@ -32,7 +34,6 @@ public class MrkApiShould {
         mrkApi.applyCommand("5 4");
         mrkApi.applyCommand("1 2 N");
 
-        Rover rover = mrkApi.getRover();
         assertThat(rover.getOrientation(),is("N"));
     }
 

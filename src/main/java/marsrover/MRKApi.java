@@ -4,12 +4,16 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MRKApi {
+    private final SetDimensionsCommand commandSetDimension;
     private final Plateau plateau;
+    private final Rover rover;
     int phase = 0;
-    Rover rover;
 
-    public MRKApi(Plateau plateau) {
+    public MRKApi(Plateau plateau, Rover rover) {
         this.plateau = plateau;
+        this.rover = rover;
+
+        commandSetDimension = new SetDimensionsCommand(plateau,rover);
     }
 
     public List<String> getOutput() {
@@ -18,15 +22,11 @@ public class MRKApi {
 
     public void applyCommand(String command) {
         if (phase == 0) {
-            Command parseComand = new Command(command);
-            int width = parseComand.getWidth();
-            int height = parseComand.getHeight();
-            plateau.setPlateauDimensions(width, height);
+            commandSetDimension.apply(command);
             phase = 1;
             return;
         }
-        String[] parts = command.split(" ");
-        rover = new Rover(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), parts[2]);
+        new SetPositionAndOrientationOfRoverCommand(plateau,rover).apply(command);
     }
 
     public Rover getRover() {

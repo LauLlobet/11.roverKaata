@@ -1,10 +1,14 @@
 package marsrover;
 
 public class Rover {
-    private final String orientation;
+    private String orientation = "W";
 
-    public Rover(int x, int y, String orientation) {
+    public void setOrientation(String orientation)
+    {
         this.orientation = orientation;
+    }
+
+    public Rover() {
     }
 
     public String getOrientation() {

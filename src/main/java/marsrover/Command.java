@@ -1,26 +1,20 @@
 package marsrover;
 
-class Command {
-    private String command;
-    private int width;
-    private int height;
+abstract class Command {
+    protected Rover rover;
+    protected Plateau plateau;
+    protected String[] parts;
 
-    public Command(String command) {
-        this.command = command;
-        String[] parts = command.split(" ");
-        width = Integer.parseInt(parts[0]);
-        height = Integer.parseInt(parts[1]);
+    public Command(Plateau plateau, Rover rover) {
+      this.plateau = plateau;
+      this.rover = rover;
     }
 
-    public Command() {
+    public void apply(String command){
+        parts = command.split(" ");
+        applyOnParts();
     }
 
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
+    public abstract void applyOnParts();
 
 }

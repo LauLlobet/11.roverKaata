@@ -14,8 +14,8 @@ public class StateShould {
     @Before
     public void setUp(){
         state = new StateMachineOfCommands();
-        intialCommand = new Command();
-        finalCommand = new Command();
+        intialCommand = new SetDimensionsCommand(null,null);
+        finalCommand = new SetPositionAndOrientationOfRoverCommand(null,null);
         state.putCommand("initial",intialCommand);
         state.putCommand("final", finalCommand);
     }
