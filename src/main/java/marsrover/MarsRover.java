@@ -31,4 +31,7 @@ public class MarsRover {
         return plateauHeight;
     }
 
+    public Rover getRover() {
+        return new Rover();
+    }
 }
